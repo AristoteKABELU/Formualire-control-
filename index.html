@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
-    <script src="./script.js"></script>
     <title>Document</title>
 </head>
 <body>
@@ -13,58 +12,81 @@
         <h1>INFORMATION</h1>
         <div>
             <label for="name">Nom</label>
-            <input class="name" type="text">
+            <input class="name" type="text" id="name">
         </div>
         <div>
             <label for="first_name">Prenom</label>
-            <input type="text">
+            <input type="text" id="first_name">
         </div>
         <div>
             <label for="masculin">Homme</label>
-            <input type="radio" name = "sex" value = 1>
+            <input type="radio" name = "sex" value = "1" id="sex">
             <label for="masculin">Femme</label>
-            <input type="radio" name = "sex" value = 2>
+            <input type="radio" name = "sex" value = "2" id="sex">
         </div>
-        <div>
-            <table>
-                <tr>Naissance</tr>
-                <tr>
-                    <td> <input type="text" placeholder="jour"> </td>
-                    <td> <select name="mois" id="mois" aria-placeholder="mois">
-                        <option></option>
-                        <option>Janvier</option>
-                        <option>fevrier</option>
-                        <option>Mars</option>
-                        <option>Avril</option>
-                        <option>juin</option>
-                        <option>juillet</option>
-                        <option>aout</option>
-                        <option>Septembre</option>
-                        <option>Octobre</option>
-                        <option>Novembre</option>
-                        <option>Decembre</option>
-                        </select>
-                    </td>
-                    <td> <input type="text" placeholder="Année"></td>
-                </tr>
-            </table>
-        </div>
+       <div>
+        <h3>Date de naissance</h3>
+        <input type="date" id="birthday">
+       </div>
         <div>
             <label for="promotion">PREPA</label>
-            <input type="checkbox" value="PREPA">
+            <input type="checkbox" value="PREPA" id="promotion">
             <label for="promotion">LICENCE 1</label>
-            <input type="checkbox" value="LICENCE 1">
+            <input type="checkbox" value="LICENCE 1" id="promotion">
             <label for="promotion">LICENCE 2</label>
-            <input type="checkbox" value="LICENCE 2">
+            <input type="checkbox" value="LICENCE 2" id="promotion">
             <label for="promotion">LICENCE 3</label>
-            <input type="checkbox" value="LICENCE 3">
+            <input type="checkbox" value="LICENCE 3" id="promotion">
         </div>
         <div>
             <h4>Parlez de vous...</h4>
-            <textarea name="description" id="text_area" cols="30" rows="10"></textarea>
+            <textarea name="description" id="description" cols="30" rows="10"></textarea>
         </div>
         <input type="submit" value = "Soumettre">
         <input type="reset" value="Reinitialisé">
     </form>
+    <script>
+        document.forms[0].addEventListener("submit", function(evenement) 
+        { 
+            if (document.getElementById("name").value == "")
+            {
+                evenement.preventDefault();
+                alert("veuillez entrez le nom");
+                document.getElementById("name").focus();
+            }
+            else if (document.getElementById("first_name").value == "")
+            {
+                evenement.preventDefault();
+                alert("veuillez entrez le prenom");
+                document.getElementById("first_name").focus();
+            }
+            else if (document.getElementById("sex").value == "")
+            {
+                evenement.preventDefault();
+                alert("veuillez entrez le sexe");
+                document.getElementById("sex").focus();
+            }
+            else if (document.getElementById("birthday").value == "")
+            {
+                evenement.preventDefault();
+                alert("veuillez entrez l'année de naissance");
+                document.getElementById("year").focus();
+            }
+            else if (document.getElementById("promotion").value == "")
+            {
+                evenement.preventDefault();
+                alert("veuillez choisir la promotion");
+                document.getElementById("promotion").focus();
+            }
+            else if (document.getElementById("description").value == "")
+            {
+                evenement.preventDefault();
+                alert("veuillez entrez la description");
+                document.getElementById("description").focus();
+            }
+            
+
+        });
+    </script>
 </body>
 </html>
